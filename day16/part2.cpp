@@ -102,7 +102,9 @@ int main() {
     auto [si, sj] = find_in_grid(grid, rows, columns, 'S');
     auto [ei, ej] = find_in_grid(grid, rows, columns, 'E');
     auto p = dijkstra(grid, rows, columns, si, sj);
-    std::vector<std::vector<std::array<bool, 4>>> v(rows, std::vector<std::array<bool, 4>>(columns, {false, false, false, false}));
+    std::vector<std::vector<std::array<bool, 4>>> v(
+        rows, std::vector<std::array<bool, 4>>(columns, {false, false, false, false})
+    );
     dfs(v, p, ei, ej, 0);
     dfs(v, p, ei, ej, 1);
     dfs(v, p, ei, ej, 2);
