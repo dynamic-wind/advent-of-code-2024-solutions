@@ -11,13 +11,12 @@ void generate_antinodes(
 ) {
     const int rows = antinodes.size();
     const int columns = antinodes.at(0).size();
-    int d = std::gcd(std::abs(p.first - q.first), std::abs(p.second - q.second));
     int ai = p.first;
     int aj = p.second;
     while (0 <= ai && ai < rows && 0 <= aj && aj < columns) {
         antinodes.at(ai).at(aj) = true;
-        ai += (p.first - q.first) / d;
-        aj += (p.second - q.second) / d;
+        ai += p.first - q.first;
+        aj += p.second - q.second;
     }
 }
 
