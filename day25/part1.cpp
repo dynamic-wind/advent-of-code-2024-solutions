@@ -1,10 +1,10 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <vector>
 
-using namespace std;
-
-vector<string> read_schematic() {
-    vector<string> result;
-    for (string line; getline(cin, line) && line.size() > 0;) {
+std::vector<std::string> read_schematic() {
+    std::vector<std::string> result;
+    for (std::string line; getline(std::cin, line) && line.size() > 0;) {
         result.push_back(std::move(line));
     }
     return result;
@@ -12,10 +12,10 @@ vector<string> read_schematic() {
 
 struct schematic {
     bool is_a_lock;
-    vector<int> heights;
+    std::vector<int> heights;
 };
 
-schematic parse_schematic(const vector<string>& lines) {
+schematic parse_schematic(const std::vector<std::string>& lines) {
     const int rows = lines.size();
     const int columns = lines.at(0).size();
     schematic result;
@@ -42,8 +42,8 @@ schematic parse_schematic(const vector<string>& lines) {
 }
 
 int main() {
-    vector<vector<int>> locks, keys;
-    for (vector<string> lines; lines = read_schematic(), lines.size() > 0;) {
+    std::vector<std::vector<int>> locks, keys;
+    for (std::vector<std::string> lines; lines = read_schematic(), lines.size() > 0;) {
         auto s = parse_schematic(lines);
         if (s.is_a_lock) {
             locks.push_back(std::move(s.heights));
@@ -64,5 +64,5 @@ int main() {
             result += b;
         }
     }
-    cout << result << '\n';
+    std::cout << result << '\n';
 }
